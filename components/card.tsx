@@ -4,7 +4,7 @@ import useDistanceCalculator from "@/data/distance";
 import { Rating } from "@mui/material";
 import { Heart } from "lucide-react";
 import Image from "next/image";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 export default function RestaurantCard({item, favorites, setFavorites, userLocation}) {
     const { getDirections } = useDistanceCalculator(item, userLocation)
@@ -13,6 +13,11 @@ export default function RestaurantCard({item, favorites, setFavorites, userLocat
         setFavorites(e, item.place_id); // Pass the placeId to the setFavorites function
       }, [item.place_id, setFavorites]);
     
+      const [ fav, setFav ] = useState(false)
+      const handleSubmit = () => {
+        handleFavoriteClick
+        setFav(true)
+      }
     return (
         <>
             <div key={item?.place_id} className="flex shrink-0 flex-col border border-black rounded-[4px] bg-white p-6 w-full md:w-[236px]">
@@ -36,8 +41,7 @@ export default function RestaurantCard({item, favorites, setFavorites, userLocat
                 <h1 className="capitalize font-medium text-lg">{item?.name.length > 18 ? item.name.slice(0,20) + "...": item.name}</h1>
                 <p>{item?.formatted_address.substring(0, item?.formatted_address.lastIndexOf(",")).slice(0, 43)}</p>
                 <div className="flex items-center gap-2">
-                    <div className="p-2 rounded-[4px] bg-slate-100 border border-black"><Heart onClick={handleFavoriteClick} strokeWidth={1.5} size={20} className="top-[10%] left-[18.5%] cursor-pointer" /></div>
-                    {/* fill={!favorites ? "#FF8195" : "#FFFFFF"} */}
+                    <div className="p-2 rounded-[4px] bg-slate-100 border border-black"><Heart onClick={handleSubmit} fill={fav ? "#FF8195" : "#FFFFFF"} strokeWidth={1.5} size={20} className="top-[10%] left-[18.5%] cursor-pointer" /></div>
                     <button onClick={getDirections} className="p-2 rounded-[4px] border-black border w-full">Directions</button>
                 </div>
             </div>

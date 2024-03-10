@@ -78,7 +78,7 @@ export default function Home() {
   return (
     <>
     <div className="flex flex-col md:flex-row justify-between m-4">
-      <button onClick={() => console.log(data)}>test</button>
+      {/* <button onClick={() => console.log(data)}>test</button> */}
     <div className="flex flex-col">
       <CuisineCategories onSelect={setCategory} />
       <FoodTypes onSelect={setCategory} />
