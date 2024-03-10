@@ -13,7 +13,7 @@ export default function About() {
                 </div>
                 <h1 className="font-medium text-xl">Satisfy your cravings with Bite! </h1>
                 <p className="text-lg">This app makes it easy to discover delicious eateries in your area. Harnessing the power of Google Maps, it automatically detects your location, offers filters to refine your search, and even provides directions to your chosen destination.</p>
-                <Link href="https://github.com/Anabel7213" className="p-4 text-lg hover:bg-[#FFBE60] transition-all mt-4 rounded-[4px] border border-black">More Fun Projects</Link>
+                <Link href="https://github.com/Anabel7213" className="px-16 py-3 text-lg hover:bg-[#FFBE60] transition-all mt-4 rounded-[4px] border border-black">More Fun Projects</Link>
             </div>
         </div>
         </>
